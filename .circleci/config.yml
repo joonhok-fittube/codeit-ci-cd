@@ -6,13 +6,16 @@ orbs:
   # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@3.3.1
 
-executors:
-  default:
-    docker:
-      - image: cimg/node:18.17.0-browsers
+jobs:
+  cypress-run:
+    executor:
+      name: cypress/default
+      node-version: "20.6.0"
+    steps:
+      - cypress/install
+      - cypress/run-tests
 
 workflows:
   build:
     jobs:
-      - cypress/run:
-          start-command: 'npm run start'
+      - cypress-run
