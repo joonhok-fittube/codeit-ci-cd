@@ -21,4 +21,6 @@ workflows:
     jobs:
       - setup-node
       - cypress/run:
+          requires:
+            - setup-node
           start-command: 'npm run start'
