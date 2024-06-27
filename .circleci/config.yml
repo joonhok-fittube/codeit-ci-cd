@@ -15,7 +15,7 @@ jobs:
       - cypress/install:
           package-manager: "yarn"
       - cypress/run-tests:
-          start-command: "npm run start"
+          start-command: "npm build && npm run start"
           cypress-command: "npx cypress run"
 
 workflows:
