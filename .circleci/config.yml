@@ -13,10 +13,9 @@ jobs:
       node-version: "20.6.0"
     steps:
       - cypress/install:
-          package-manager: "yarn"
+          post-install: "npm run build"
       - cypress/run-tests:
-          start-command: "npm run build && npm run start"
-          cypress-command: "npx cypress run"
+          start-command: "npm run start"
 
 workflows:
   build:
